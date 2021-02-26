@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package greet;
+
+option go_package="gitlab.com\\tleuzhan13\\grpc-go-course\\greet\\greetpb;greetpb";
+
+message PrimeNumberDecompositionRequest {
+  int number = 1;
+}
+
+message PrimeNumberDecompositionResponse {
+  int number = 1;
+}
+
+message ComputeAverageRequest {
+  int number = 1;
+}
+
+message ComputeAverageResponse {
+  int number = 1;
+}
+
+service CalculatorService {
+  rpc PrimeNumberDecomposition(PrimeNumberDecompositionRequest) returns (stream PrimeNumberDecompositionResponse) {};
+  rpc ComputeAverage(stream ComputeAverageRequest) returns (ComputeAverageResponse) {};
+}
